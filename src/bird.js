@@ -28,6 +28,7 @@ class Bird {
   /**
    * Causes the bird to perform a flap action, adjusting its position upwards.
    * @method Bird#flap
+   * @returns {void}
    */
   flap() {
     this.position.add(this.LIFT_DISTANCE);
@@ -36,6 +37,7 @@ class Bird {
   /**
    * Updates the bird's position and velocity based on gravity and constraints.
    * @method Bird#update
+   * @returns {void}
    */
   update() {
     this.velocity.add(this.gravity);
@@ -56,6 +58,7 @@ class Bird {
   /**
    * Displays the bird on the canvas.
    * @method Bird#show
+   * @returns {void}
    */
   show() {
     fill(this.MINT_GREEN);
