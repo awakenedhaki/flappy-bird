@@ -59,6 +59,15 @@ class Bird {
    */
   show() {
     fill(this.MINT_GREEN);
-    ellipse(this.position.x, this.position.y, this.RADIUS * SCALE);
+    ellipse(this.position.x, this.position.y, this.radius);
+  }
+
+  /**
+   * Gets the radius of the bird.
+   * @method Bird#radius
+   * @returns {number} - The radius of the bird.
+   */
+  get radius() {
+    return this.RADIUS * SCALE;
   }
 }
