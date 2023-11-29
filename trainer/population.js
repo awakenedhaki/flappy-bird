@@ -44,7 +44,7 @@ class Population {
       for (let j = 0; j < nChildren; j++) {
         // Copy and mutate parent to create a child
         const child = birds[i].copy();
-        child.mutate();
+        child.mutate(this.MUTATION_RATE);
 
         // Push child into array
         nextGeneration.push(child);
