@@ -42,17 +42,6 @@ class Population {
   }
 
   /**
-   * Retrieves the fittest N birds in the population.
-   * @method Population#fittestNBirds
-   * @param {number} n - The number of fittest birds to retrieve.
-   * @returns {NNBird[]} - The fittest N birds in the population.
-   */
-  fittestNBirds(n) {
-    this.inactiveBirds.sort((left, right) => left.fitness > right.fitness);
-    return this.inactiveBirds.slice(0, n);
-  }
-
-  /**
    * Calculates the fitness of each bird in the population.
    * @method Population#calculateFitness
    */
