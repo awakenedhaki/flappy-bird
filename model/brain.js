@@ -23,7 +23,8 @@ class Brain {
     this.nOutputNodes = nOutputNodes;
 
     // Set model
-    this.model = brain || this.createModel();
+    this.model =
+      brain || this.createModel(nInputNodes, nHiddenNodes, nOutputNodes);
   }
 
   /**
@@ -31,20 +32,20 @@ class Brain {
    * @method Brain#createModel
    * @returns {tf.Sequential} - Returns a sequential model.
    */
-  createModel() {
+  createModel(nInputNodes, nHiddenNodes, nOutputNodes) {
     // Single layered NN
     return tf.sequential({
       layers: [
         // Fully connected hidden layer
         tf.layers.dense({
-          units: this.nHiddenNodes,
-          inputShape: [this.nInputNodes],
+          units: nHiddenNodes,
+          inputShape: [nInputNodes],
           activation: this.HIDDEN_LAYER_ACTIVATION,
           useBias: true,
         }),
         // Fully connected output layer
         tf.layers.dense({
-          units: this.nOutputNodes,
+          units: nOutputNodes,
           acivation: this.OUTPUT_LAYER_ACTIVATION,
         }),
       ],
