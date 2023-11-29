@@ -6,6 +6,7 @@ class Bird {
   /**
    * Creates a new Bird object.
    * @param {number} y - The initial y-coordinate position of the bird.
+   * @todo Apply SCALE global constant to velocity of bird
    */
   constructor(y) {
     // CONSTANTS
