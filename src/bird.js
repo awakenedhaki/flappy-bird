@@ -15,7 +15,7 @@ class Bird {
     this.DIAMETER = 17;
     this.MAX_VELOCITY = 5;
     this.MIN_VELOCITY = -4;
-    this.LIFT_DISTANCE = createVector(0, -10);
+    this.LIFT = createVector(0, -10);
 
     // Position of Bird
     this.position = createVector(this.X_POSITION, height / 2);
@@ -31,7 +31,7 @@ class Bird {
    * @returns {void}
    */
   flap() {
-    this.position.add(this.LIFT_DISTANCE);
+    this.velocity.add(this.LIFT);
   }
 
   /**
