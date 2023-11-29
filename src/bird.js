@@ -13,15 +13,15 @@ class Bird {
     this.BORDER_OFFSET = 0.1;
     this.MINT_GREEN = [201, 237, 220, 190];
     this.DIAMETER = 17;
-    this.MAX_VELOCITY = 1.2;
-    this.MIN_VELOCITY = 0;
-    this.LIFT_DISTANCE = createVector(0, -25);
+    this.MAX_VELOCITY = 5;
+    this.MIN_VELOCITY = -4;
+    this.LIFT_DISTANCE = createVector(0, -10);
 
     // Position of Bird
     this.position = createVector(this.X_POSITION, height / 2);
 
     // Movement
-    this.gravity = createVector(0, 0.25);
+    this.gravity = createVector(0, 0.4);
     this.velocity = createVector(0, 0);
   }
 
