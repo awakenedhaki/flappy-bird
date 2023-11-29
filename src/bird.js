@@ -72,10 +72,10 @@ class Bird {
    */
   toHitBox() {
     const hitBox = {
-      top: bird.position.y - bird.radius,
-      right: bird.position.x + bird.radius,
-      bottom: bird.position.y + bird.radius,
-      left: bird.position.x - bird.radius,
+      top: this.position.y - this.radius,
+      right: this.position.x + this.radius,
+      bottom: this.position.y + this.radius,
+      left: this.position.x - this.radius,
     };
     return hitBox;
   }
