@@ -66,6 +66,21 @@ class Bird {
   }
 
   /**
+   * Converts the bird's position and size to a hit box for collision detection.
+   * @method Bird#toHitBox
+   * @returns {{top: number, right: number, bottom: number, left: number}} - The coordinates of the bird's hit box.
+   */
+  toHitBox() {
+    const hitBox = {
+      top: bird.position.y - bird.radius,
+      right: bird.position.x + bird.radius,
+      bottom: bird.position.y + bird.radius,
+      left: bird.position.x - bird.radius,
+    };
+    return hitBox;
+  }
+
+  /**
    * Gets the radius of the bird.
    * @method Bird#radius
    * @returns {number} - The radius of the bird.
