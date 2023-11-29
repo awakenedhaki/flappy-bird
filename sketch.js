@@ -37,10 +37,18 @@ function draw() {
     if (collision(bird, pipes.firstPipe)) {
       birds.cull(i);
     }
+
+    pipeCrossed(bird, pipes.firstPipe);
     inactivatePipe(bird, pipes.firstPipe);
 
     bird.predict(pipes.firstPipe);
   });
+
+  if (birds.activeBirds.length === 0) {
+    birds.calculateFitness();
+    birds = Population.proliferate(birds.inactiveBirds);
+    pipes = new Pipes();
+  }
 }
 
 // Game Management =============================================================
@@ -58,9 +66,16 @@ function collision(bird, pipe) {
   return xCollision && yCollision;
 }
 
+function pipeCrossed(bird, pipe) {
+  const hitBox = bird.toHitBox();
+  if (hitBox.right >= pipe.leftEdge * CROSSING_THRESHOLD && pipe.active) {
+    bird.score += 1;
+  }
+}
+
 function inactivatePipe(bird, pipe) {
   const hitBox = bird.toHitBox();
-  if (hitBox.left >= pipe.rightEdge * COLLISION_TOLERANCE) {
+  if (hitBox.left > pipe.rightEdge * COLLISION_TOLERANCE) {
     pipe.inactivate();
   }
 }
