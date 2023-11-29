@@ -22,6 +22,9 @@ class Pipe {
 
     // Movement
     this.velocity = createVector(-2, 0);
+
+    // Behaviour
+    this.active = true;
   }
 
   /**
@@ -46,6 +49,15 @@ class Pipe {
 
     // Bottom pipe
     rect(this.center.x, this.center.y + this.spacing, this.width, height);
+  }
+
+  /**
+   * Deactivates the pipe.
+   * @method Pipe#inactivate
+   * @returns {void}
+   */
+  inactivate() {
+    this.active = false;
   }
 
   /**
