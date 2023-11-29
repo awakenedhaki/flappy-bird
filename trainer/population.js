@@ -102,7 +102,7 @@ class Population {
    * @param {number} index - The index of the bird to be moved to the inactive list.
    */
   cull(index) {
-    this.inactiveBirds.push(this.activeBirds.splice(index, 1));
+    this.inactiveBirds.push(...this.activeBirds.splice(index, 1));
   }
 
   /**
