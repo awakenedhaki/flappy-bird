@@ -24,27 +24,30 @@ class Population {
   initializePopulation() {
     const birds = [];
     for (let i = 0; i < this.size; i++) {
-      birds[i] = new NNBird(
-        this.N_INPUT_NODES,
-        this.N_HIDDEN_NODES,
-        this.N_OUTPUT_NODES
-      );
+      birds[i] = new NNBird(N_INPUT_NODES, N_HIDDEN_NODES, N_OUTPUT_NODES);
     }
     return birds;
   }
 
-  static proliferate(birds) {
+  /**
+   * Creates a new generation of birds from the current population.
+   * @static
+   * @method Population#nextGeneration
+   * @param {NNBird[]} birds - The current population of birds.
+   * @returns {Population} - A new population with the next generation of birds.
+   */
+  static nextGeneration(birds) {
     let weights = birds.map((bird) => {
       return bird.fitness;
     });
 
-    let nextGeneration = [];
+    const population = [];
     for (let i = 0; i < birds.length; i++) {
-      nextGeneration[i] = weightedRandomSelection(birds, weights).copy();
-      nextGeneration[i].mutate(MUTATION_RATE);
+      population[i] = weightedRandomSelection(birds, weights).copy();
+      population[i].mutate(MUTATION_RATE);
     }
 
-    return new Population(birds.length, nextGeneration);
+    return new Population(birds.length, population);
   }
 
   /**

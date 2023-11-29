@@ -54,7 +54,7 @@ function draw() {
 
   if (birds.activeBirds.length === 0) {
     birds.calculateFitness();
-    birds = Population.proliferate(birds.inactiveBirds);
+    birds = Population.nextGeneration(birds.inactiveBirds);
     pipes = new Pipes();
   }
 }
