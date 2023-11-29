@@ -7,7 +7,7 @@ class Pipe {
    * Creates a new Pipe object.
    * @constructor
    */
-  constructor() {
+  constructor(x) {
     // CONSTANTS
     this.DIM_GREY = [106, 112, 110, 190];
     this.OFFSET = 60;
@@ -15,8 +15,8 @@ class Pipe {
     this.WIDTH = 25;
 
     // Position
-    this.center = createVector(
-      width,
+    this.pipe = createVector(
+      x || width,
       random(this.OFFSET, height - this.OFFSET)
     );
 
@@ -25,6 +25,17 @@ class Pipe {
 
     // Behaviour
     this.active = true;
+  }
+
+  /**
+   * Creates a new Pipe object with a specified x-coordinate.
+   * @static
+   * @method Pipe#fromXCoordinate
+   * @param {number} xCoordinate - The initial x-coordinate position of the pipe.
+   * @returns {Pipe} - The newly created Pipe object.
+   */
+  static fromXCoordinate(xCoordinate) {
+    return new Pipe(xCoordinate);
   }
 
   /**
