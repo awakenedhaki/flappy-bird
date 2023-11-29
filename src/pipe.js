@@ -61,6 +61,18 @@ class Pipe {
   }
 
   /**
+   * Retrieves the opening coordinates (top and bottom) of the pipe.
+   * @method Pipe#toOpening
+   * @returns {{top: number, bottom: number}} - The coordinates of the top and bottom openings.
+   */
+  toOpening() {
+    return {
+      top: this.center.y - this.spacing,
+      bottom: this.center.y + this.spacing,
+    };
+  }
+
+  /**
    * Gets the x-coordinate of the pipe's center.
    * @method Pipe#x
    * @returns {number} - The x-coordinate of the pipe's center.
