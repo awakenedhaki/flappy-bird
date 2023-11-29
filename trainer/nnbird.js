@@ -47,7 +47,6 @@ class NNBird extends Bird {
    * @returns {void}
    */
   update() {
-    this.score++;
     super.update();
   }
 
