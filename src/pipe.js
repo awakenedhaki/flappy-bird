@@ -33,7 +33,7 @@ class Pipe {
    * @returns {void}
    */
   update() {
-    this.center.add(this.velocity);
+    this.pipe.add(this.velocity);
   }
 
   /**
@@ -45,10 +45,10 @@ class Pipe {
     fill(...this.DIM_GREY);
 
     // Top pipe
-    rect(this.center.x, 0, this.width, this.center.y - this.spacing);
+    rect(this.pipe.x, 0, this.width, this.pipe.y - this.spacing);
 
     // Bottom pipe
-    rect(this.center.x, this.center.y + this.spacing, this.width, height);
+    rect(this.pipe.x, this.pipe.y + this.spacing, this.width, height);
   }
 
   /**
@@ -67,8 +67,8 @@ class Pipe {
    */
   toOpening() {
     return {
-      top: this.center.y - this.spacing,
-      bottom: this.center.y + this.spacing,
+      top: this.pipe.y - this.spacing,
+      bottom: this.pipe.y + this.spacing,
     };
   }
 
@@ -78,7 +78,7 @@ class Pipe {
    * @returns {number} - The x-coordinate of the pipe's center.
    */
   get x() {
-    return this.center.x;
+    return this.pipe.x;
   }
 
   /**
