@@ -85,4 +85,8 @@ class NNBird extends Bird {
       this.flap();
     }
   }
+
+  dispose() {
+    this.brain.dispose();
+  }
 }
