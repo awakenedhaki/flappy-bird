@@ -77,9 +77,8 @@ class Population {
    * @returns {NNBird[]} - The fittest N birds in the population.
    */
   fittestNBirds(n) {
-    return this.birds
-      .sort((left, right) => left.fitness > right.fitness)
-      .slice(0, n);
+    this.inactiveBirds.sort((left, right) => left.fitness > right.fitness);
+    return this.inactiveBirds.slice(0, n);
   }
 
   /**
