@@ -16,14 +16,14 @@ class Bird {
     this.DIAMETER = 17;
     this.MAX_VELOCITY = 6;
     this.MIN_VELOCITY = -4;
-    this.LIFT = createVector(0, -10);
 
     // Position of Bird
     this.position = createVector(this.X_POSITION, height / 2);
 
     // Movement
-    this.gravity = createVector(0, 0.4);
+    this.gravity = createVector(0, 0.3);
     this.velocity = createVector(0, 0);
+    this.lift = createVector(0, -10);
   }
 
   /**
@@ -32,7 +32,7 @@ class Bird {
    * @returns {void}
    */
   flap() {
-    this.velocity.add(this.LIFT);
+    this.velocity.add(this.lift);
   }
 
   /**
