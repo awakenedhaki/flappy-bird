@@ -55,10 +55,10 @@ class Population {
    * @method Population#calculateFitness
    */
   calculateFitness() {
-    let totalScore = 0;
-    for (let i = 0; i < this.inactiveBirds.length; i++) {
-      totalScore += this.inactiveBirds[i].score;
-    }
+    const totalScore = this.inactiveBirds.reduce(
+      (score, bird) => score + bird.score,
+      0
+    );
 
     for (let i = 0; i < this.inactiveBirds.length; i++) {
       const bird = this.inactiveBirds[i];
