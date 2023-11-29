@@ -1,8 +1,13 @@
-function integerLinearSpace(start, stop, cardinality) {
-  const linearSpace = [];
-  const step = (stop - start) / (cardinality - 1);
-  for (let i = 0; i < cardinality; i++) {
-    linearSpace.push(start + step * i);
+function weightedRandomSelection(elements, weights) {
+  const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
+  const randomValue = Math.random() * totalWeight;
+
+  let cumulativeWeight = 0;
+  for (let i = 0; i < elements.length; i++) {
+    cumulativeWeight += weights[i];
+    if (randomValue <= cumulativeWeight) {
+      return elements[i];
+    }
   }
-  return linearSpace;
+  return null;
 }
