@@ -42,15 +42,6 @@ class NNBird extends Bird {
   }
 
   /**
-   * Updates the NNBird's score and calls the superclass's update method.
-   * @method NNBird#update
-   * @returns {void}
-   */
-  update() {
-    super.update();
-  }
-
-  /**
    * Mutates the brain of the NNBird.
    * @method NNBird#mutate
    * @param {number} rate - The mutation rate for the brain.
