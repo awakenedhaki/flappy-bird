@@ -111,6 +111,15 @@ class Pipe {
   }
 
   /**
+   * Gets the left-edge x-coordinate of the pipe.
+   * @method Pipe#leftEdge
+   * @returns {number} - The left-edge x-coordinate of the pipe.
+   */
+  get leftEdge() {
+    return this.x;
+  }
+
+  /**
    * Gets the width of the pipe.
    * @method Pipe#width
    * @returns {number} - The width of the pipe.
