@@ -15,7 +15,7 @@ class Brain {
   constructor(nInputNodes, nHiddenNodes, nOutputNodes, brain) {
     // Constants
     this.HIDDEN_LAYER_ACTIVATION = "sigmoid";
-    this.OUTPUT_LAYER_ACTIVATION = "softmax";
+    this.OUTPUT_LAYER_ACTIVATION = "sigmoid";
 
     // Model Parameters
     this.nInputNodes = nInputNodes;
