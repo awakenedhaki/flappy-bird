@@ -84,6 +84,16 @@ class Pipe {
   }
 
   /**
+   * Checks if the pipe has moved offscreen to the left.
+   * @method Pipe#isOffscreen
+   * @returns {boolean} - True if the pipe is offscreen, otherwise false.
+   */
+  get isOffscreen() {
+    const rightEdge = this.x + this.width;
+    return rightEdge <= 0;
+  }
+
+  /**
    * Gets the x-coordinate of the pipe's center.
    * @method Pipe#x
    * @returns {number} - The x-coordinate of the pipe's center.
