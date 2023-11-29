@@ -9,7 +9,7 @@ class Pipes {
    */
   constructor() {
     // Constants
-    this.DISTANCE_BETWEEN_PIPES = 190;
+    this.DISTANCE_BETWEEN_PIPES = 180;
     this.MAX_PIPES = 4;
 
     // Collection
