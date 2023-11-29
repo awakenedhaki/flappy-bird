@@ -89,8 +89,7 @@ class Pipe {
    * @returns {boolean} - True if the pipe is offscreen, otherwise false.
    */
   get isOffscreen() {
-    const rightEdge = this.x + this.width;
-    return rightEdge <= 0;
+    return this.rightEdge <= 0;
   }
 
   /**
@@ -100,6 +99,15 @@ class Pipe {
    */
   get x() {
     return this.pipe.x;
+  }
+
+  /**
+   * Gets the right-edge x-coordinate of the pipe.
+   * @method Pipe#rightEdge
+   * @returns {number} - The right-edge x-coordinate of the pipe.
+   */
+  get rightEdge() {
+    return this.x + this.width;
   }
 
   /**
