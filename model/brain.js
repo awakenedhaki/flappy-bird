@@ -105,24 +105,25 @@ class Brain {
    * @returns {tf.Sequential} - Returns a copy of the neural network model.
    */
   copy() {
-    // Instantiate a new model
-    const model = this.createModel(
-      this.nInputNodes,
-      this.nHiddenNodes,
-      this.nOutputNodes
-    );
+    return tf.tidy(() => {
+      const model = this.createModel(
+        this.nInputNodes,
+        this.nHiddenNodes,
+        this.nOutputNodes
+      );
 
-    tf.tidy(() => {
-      const weights = this.model.getWeights().map((weight) => tf.clone(weight));
+      const weights = this.model
+        .getWeights()
+        .map((weights) => tf.clone(weights));
       model.setWeights(weights);
-    });
 
-    return new Brain(
-      this.nInputNodes,
-      this.nHiddenNodes,
-      this.nOutputNodes,
-      model
-    );
+      return new Brain(
+        this.nInputNodes,
+        this.nHiddenNodes,
+        this.nOutputNodes,
+        model
+      );
+    });
   }
 
   /**
