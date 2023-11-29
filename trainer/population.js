@@ -22,8 +22,6 @@ class Population {
     this.inactiveBirds = [];
   }
 
-  static proliferate(birds) {}
-
   /**
    * Initializes the population with a set of birds.
    * @method Population#initializePopulation
@@ -41,18 +39,34 @@ class Population {
     return birds;
   }
 
+  static proliferate(birds) {
+    let weights = birds.map((bird) => {
+      return bird.fitness;
+    });
+
+    let nextGeneration = [];
+    for (let i = 0; i < birds.length; i++) {
+      nextGeneration[i] = weightedRandomSelection(birds, weights).copy();
+      nextGeneration[i].mutate(MUTATION_RATE);
+    }
+
+    return new Population(birds.length, nextGeneration);
+  }
+
   /**
    * Calculates the fitness of each bird in the population.
    * @method Population#calculateFitness
    */
   calculateFitness() {
-    const totalScore = this.inactiveBirds.reduce(
-      (score, bird) => score + bird.score
-    );
+    let totalScore = 0;
+    for (let i = 0; i < this.inactiveBirds.length; i++) {
+      totalScore += this.inactiveBirds[i].score;
+    }
 
-    this.inactiveBirds.forEach((bird) => {
+    for (let i = 0; i < this.inactiveBirds.length; i++) {
+      const bird = this.inactiveBirds[i];
       bird.fitness = bird.score / totalScore;
-    });
+    }
   }
 
   /**
