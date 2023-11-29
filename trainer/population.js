@@ -23,35 +23,7 @@ class Population {
     this.inactiveBirds = [];
   }
 
-  /**
-   * Creates a new population of birds based on the fitness of existing birds.
-   * @method Population#proliferate
-   * @static
-   * @param {NNBird[]} birds - The current set of birds in the population.
-   * @param {number} size - The desired size of the next generation population.
-   * @returns {Population} - A new population of birds for the next generation.
-   */
-  static proliferate(birds, size) {
-    const nBirds = birds.length;
-    const childrenPerBird = integerLinearSpace(0, size, nBirds);
-
-    // Generate next generation
-    const nextGeneration = [];
-    // Indices for parent birds
-    for (let i = 0; i < nBirds; i++) {
-      // Number of children for ith parent bird
-      const nChildren = childrenPerBird[i];
-      for (let j = 0; j < nChildren; j++) {
-        // Copy and mutate parent to create a child
-        const child = birds[i].copy();
-        child.mutate(this.MUTATION_RATE);
-
-        // Push child into array
-        nextGeneration.push(child);
-      }
-    }
-    return new Population(size, nextGeneration);
-  }
+  static proliferate(birds) {}
 
   /**
    * Initializes the population with a set of birds.
