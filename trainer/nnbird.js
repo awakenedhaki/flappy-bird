@@ -30,7 +30,7 @@ class NNBird extends Bird {
    * @returns {NNBird} - The newly created NNBird instance.
    */
   static fromBrain(y, brain) {
-    return new NNBird(y, null, null, null, brain);
+    return new NNBird(null, null, null, brain);
   }
 
   /**
