@@ -60,7 +60,7 @@ class Brain {
    */
   mutate(rate) {
     tf.tidy(() => {
-      const weights = this.brain.getWeights();
+      const weights = this.model.getWeights();
 
       const mutatedWeights = weights.map((tensor) => {
         // Shape of tensor
