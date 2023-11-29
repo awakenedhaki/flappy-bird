@@ -52,6 +52,7 @@ function draw() {
     bird.predict(pipes.firstPipe);
   });
 
+  // Selection + Mutation
   if (birds.activeBirds.length === 0) {
     birds.calculateFitness();
     birds = Population.nextGeneration(birds.inactiveBirds);
