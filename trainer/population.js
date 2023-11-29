@@ -12,7 +12,6 @@ class Population {
    */
   constructor(size, birds) {
     // Constants
-    this.MUTATION_RATE = 0.3;
     this.N_INPUT_NODES = 5;
     this.N_HIDDEN_NODES = 8;
     this.N_OUTPUT_NODES = 2;
