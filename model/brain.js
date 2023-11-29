@@ -40,6 +40,7 @@ class Brain {
           units: this.nHiddenNodes,
           inputShape: [this.nInputNodes],
           activation: this.HIDDEN_LAYER_ACTIVATION,
+          useBias: true,
         }),
         // Fully connected output layer
         tf.layers.dense({
