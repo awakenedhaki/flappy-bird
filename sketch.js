@@ -5,6 +5,8 @@ let birds, pipes;
 const SCALE = 1.5;
 const ENGLISH_VIOLET = [76, 59, 77];
 const COLLISION_TOLERANCE = 0.65;
+const CROSSING_THRESHOLD = 1.25;
+const MUTATION_RATE = 0.3;
 const N_BIRDS = 50;
 
 // p5js Boilerplate ============================================================
