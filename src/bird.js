@@ -13,7 +13,7 @@ class Bird {
     this.BORDER_OFFSET = 0.1;
     this.MINT_GREEN = [201, 237, 220, 190];
     this.DIAMETER = 17;
-    this.MAX_VELOCITY = 5;
+    this.MAX_VELOCITY = 6;
     this.MIN_VELOCITY = -4;
     this.LIFT = createVector(0, -10);
 
