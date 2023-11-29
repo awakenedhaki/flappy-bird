@@ -25,11 +25,10 @@ class NNBird extends Bird {
    * Creates an NNBird object from an existing brain.
    * @method NNBird#fromBrain
    * @static
-   * @param {number} y - The initial y-coordinate of the bird.
    * @param {Brain} brain - The neural network brain for the bird.
    * @returns {NNBird} - The newly created NNBird instance.
    */
-  static fromBrain(y, brain) {
+  static fromBrain(brain) {
     return new NNBird(null, null, null, brain);
   }
 
