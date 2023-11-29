@@ -11,12 +11,6 @@ class Population {
    * @param {NNBird[]} birds - The initial set of birds in the population (optional).
    */
   constructor(size, birds) {
-    // Constants
-    this.N_INPUT_NODES = 5;
-    this.N_HIDDEN_NODES = 8;
-    this.N_OUTPUT_NODES = 2;
-
-    // Parameters
     this.size = size || 5;
     this.activeBirds = birds || this.initializePopulation();
     this.inactiveBirds = [];
