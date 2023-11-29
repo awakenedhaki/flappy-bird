@@ -9,7 +9,7 @@ class Bird {
    * @todo Apply SCALE global constant to velocity of bird
    */
   constructor(y) {
-    // CONSTANTS
+    // Constants
     this.X_POSITION = 35;
     this.BORDER_OFFSET = 0.1;
     this.MINT_GREEN = [201, 237, 220, 190];

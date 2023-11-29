@@ -8,7 +8,7 @@ class Pipe {
    * @constructor
    */
   constructor(x) {
-    // CONSTANTS
+    // Constants
     this.DIM_GREY = [106, 112, 110, 190];
     this.OFFSET = 60;
     this.SPACING = 27;
