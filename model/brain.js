@@ -61,21 +61,19 @@ class Brain {
   mutate(rate) {
     tf.tidy(() => {
       const weights = this.model.getWeights();
-
       const mutatedWeights = weights.map((tensor) => {
         // Shape of tensor
         const shape = tensor.shape;
 
-        // Synchronously download weight values
+        // Synchronously download tensor weights
         const weights = tensor.dataSync();
 
-        // Add gaussian noise to weights at given mutation rate
+        // Mutate weights with gaussian noise
         const mutatedWeights = weights.map((weight) => {
-          if (random(1) > rate) {
-            weight += randomGaussian();
-          } else {
-            weight;
+          if (random(1) < rate) {
+            weight += randomGaussian(0, 0.1);
           }
+          return weight;
         });
 
         return tf.tensor(mutatedWeights, shape);
