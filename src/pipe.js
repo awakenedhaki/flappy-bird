@@ -12,7 +12,7 @@ class Pipe {
     this.DIM_GREY = [106, 112, 110, 190];
     this.OFFSET = 60;
     this.SPACING = 27;
-    this.WIDTH = 17;
+    this.WIDTH = 25;
 
     // Position
     this.center = createVector(
