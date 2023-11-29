@@ -61,6 +61,15 @@ class Pipe {
   }
 
   /**
+   * Gets the x-coordinate of the pipe's center.
+   * @method Pipe#x
+   * @returns {number} - The x-coordinate of the pipe's center.
+   */
+  get x() {
+    return this.center.x;
+  }
+
+  /**
    * Gets the width of the pipe.
    * @method Pipe#width
    * @returns {number} - The width of the pipe.
