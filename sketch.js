@@ -37,8 +37,7 @@ function draw() {
   pipes.show();
 
   // Obstacle Management
-  pipes.removePipe();
-  pipes.spawnPipe();
+  pipes.recyclePipe();
 
   // Game/Population Management
   birds.forEach((bird, i) => {

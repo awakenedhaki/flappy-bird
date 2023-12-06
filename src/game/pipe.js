@@ -26,10 +26,7 @@ class Pipe {
     this.WIDTH = 25;
 
     // Position
-    this.position = createVector(
-      x || width,
-      random(this.OFFSET, height - this.OFFSET)
-    );
+    this.position = this.generatePosition(x);
 
     // Movement
     this.velocity = createVector(-2, 0);
@@ -47,6 +44,31 @@ class Pipe {
    */
   static fromXCoordinate(xCoordinate) {
     return new Pipe(xCoordinate);
+  }
+
+  /**
+   * Generates a new position for the pipe.
+   * If x is provided, the pipe will be positioned at that x-coordinate.
+   * Otherwise, the pipe will be positioned at the right edge of the canvas.
+   * The y-coordinate is randomly generated within a specified range.
+   * @method Pipe#generatePosition
+   * @param {number} [x] - The x-coordinate position of the pipe.
+   * @returns {p5.Vector} - The generated position of the pipe.
+   */
+  generatePosition(x) {
+    return createVector(x || width, random(this.OFFSET, height - this.OFFSET));
+  }
+
+  /**
+   * Changes the opening coordinates of the pipe.
+   * The pipe's position will be updated with a new randomly generated y-coordinate within a specified range.
+   * If x is provided, the pipe will be repositioned at that x-coordinate.
+   * @method Pipe#changeOpeningCoordinates
+   * @param {number} [x] - The x-coordinate position of the pipe.
+   * @returns {void}
+   */
+  changeOpeningCoordinates(x) {
+    this.position = this.generatePosition(x);
   }
 
   /**
