@@ -88,7 +88,7 @@ class Pipe {
    * @method Pipe#isOffscreen
    * @returns {boolean} - True if the pipe is offscreen, otherwise false.
    */
-  get isOffscreen() {
+  get isOffscreenLeft() {
     return this.rightEdge <= 0;
   }
 

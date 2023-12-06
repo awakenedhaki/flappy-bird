@@ -38,7 +38,7 @@ class Pipes {
    * @todo Recycle pipe instead of splicing
    */
   removePipe() {
-    if (this.firstPipe.isOffscreen) {
+    if (this.firstPipe.isOffscreenLeft) {
       this.pipes.splice(0, 1);
     }
   }
