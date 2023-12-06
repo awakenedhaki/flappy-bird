@@ -67,11 +67,7 @@ class Bird {
     );
 
     this.position.add(this.velocity);
-    this.position.y = constrain(
-      this.position.y,
-      this.BORDER_OFFSET,
-      height - this.DIAMETER
-    );
+    this.position.y = constrain(this.position.y, this.BORDER_OFFSET, height);
   }
 
   /**
