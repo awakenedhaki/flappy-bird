@@ -38,6 +38,8 @@ class Pipes {
    * @todo Recycle pipe instead of splicing
    */
   removePipe() {
+    if (this.pipes.length === 0) return;
+
     if (this.firstPipe.isOffscreenLeft) {
       this.pipes.splice(0, 1);
     }
