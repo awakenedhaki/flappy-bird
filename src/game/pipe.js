@@ -86,7 +86,6 @@ class Pipe {
    * that extends from a point spaced a certain distance below the top pipe to the
    * bottom of the screen. The space in between the top and bottom pipes is where
    * the bird can pass through.
-   *
    * @method Pipe#show
    * @returns {void}
    */

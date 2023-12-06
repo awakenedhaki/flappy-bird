@@ -54,7 +54,6 @@ class Bird {
    * Updates the bird's velocity and position. The bird's velocity is increased by the gravity,
    * then constrained to be within the minimum and maximum velocities. The bird's position is
    * then updated by adding the velocity, and is constrained to be within the screen boundaries.
-   *
    * @method Bird#update
    * @returns {void}
    */

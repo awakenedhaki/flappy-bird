@@ -36,7 +36,6 @@ class Population {
    * Creates a new generation of birds from the current population.
    * The new generation is created by selecting the fittest birds from the
    * current population and using them to breed a new set of birds.
-   *
    * @static
    * @method Population#nextGeneration
    * @param {NNBird[]} birds - The current population of birds.
