@@ -62,23 +62,19 @@ class Brain {
     tf.tidy(() => {
       const weights = this.model.getWeights();
       const mutatedWeights = weights.map((tensor) => {
-        // Shape of tensor
-        const shape = tensor.shape;
+        // Create a tensor of random values with the same shape as `tensor`
+        const randomGaussianTensor = tf.randomNormal(tensor.shape);
 
-        // Synchronously download tensor weights
-        const weights = tensor.dataSync();
+        // Create a tensor of booleans, where each value is true with probability `rate`
+        const mutationMask = tf.randomUniform(tensor.shape).less(rate);
 
-        // Mutate weights with gaussian noise
-        const mutatedWeights = weights.map((weight) => {
-          if (random(1) < rate) {
-            weight += randomGaussian(0, 0.1);
-          }
-          return weight;
-        });
+        // Add the random values to `tensor`, but only where `mutationMask` is true
+        const mutatedTensor = tensor.add(
+          randomGaussianTensor.mul(mutationMask)
+        );
 
-        return tf.tensor(mutatedWeights, shape);
+        return mutatedTensor;
       });
-
       // Update weights in model
       this.model.setWeights(mutatedWeights);
     });
@@ -104,7 +100,7 @@ class Brain {
    */
   copy() {
     return tf.tidy(() => {
-      const model = this.createModel(
+      const modelCopy = this.createModel(
         this.nInputNodes,
         this.nHiddenNodes,
         this.nOutputNodes
@@ -113,13 +109,14 @@ class Brain {
       const weights = this.model
         .getWeights()
         .map((weights) => tf.clone(weights));
-      model.setWeights(weights);
+
+      modelCopy.setWeights(weights);
 
       return new Brain(
         this.nInputNodes,
         this.nHiddenNodes,
         this.nOutputNodes,
-        model
+        modelCopy
       );
     });
   }
