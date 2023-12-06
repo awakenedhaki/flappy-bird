@@ -31,6 +31,7 @@ class Bird {
    * @returns {void}
    */
   flap() {
+    this.velocity.set(0, 0);
     this.velocity.add(this.lift);
   }
 
