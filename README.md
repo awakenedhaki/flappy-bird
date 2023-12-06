@@ -27,23 +27,3 @@ $ python3 -m http.server
 ```
 
 4. Visit http://localhost:8000 on your browser.
-
-## Project Architecture
-
-```
-.
-├── README.md
-├── index.html
-├── style.css
-├── model
-│   └── brain.js
-├── sketch.js
-├── src
-│   ├── bird.js
-│   ├── pipe.js
-│   └── pipes.js
-├── trainer
-│   ├── nnbird.js
-│   └── population.js
-└── utils.js
-```
