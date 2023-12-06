@@ -66,11 +66,19 @@ function collision(bird, pipe) {
     return false;
   }
   const hitBox = bird.toHitBox();
-  const opening = pipe.toOpening();
+  const pipeOpening = pipe.toOpening();
 
-  const xCollision = hitBox.right >= pipe.x;
+  return pipeCollision(hitBox, pipeOpening) || borderCollision(hitBox);
+}
+
+function borderCollision(hitBox) {
+  return hitBox.top <= 0 || hitBox.bottom >= height;
+}
+
+function pipeCollision(hitBox, pipeOpening) {
+  const xCollision = hitBox.right >= pipeOpening.left;
   const yCollision =
-    hitBox.top <= opening.top || hitBox.bottom >= opening.bottom;
+    hitBox.top <= pipeOpening.top || hitBox.bottom >= pipeOpening.bottom;
 
   return xCollision && yCollision;
 }
