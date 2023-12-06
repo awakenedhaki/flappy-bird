@@ -52,12 +52,12 @@ class Bird {
     this.position.y = constrain(
       this.position.y,
       this.BORDER_OFFSET,
-      height - this.BORDER_OFFSET
+      height - this.DIAMETER
     );
   }
 
   /**
-   * Displays the bird on the canvas.
+   * Draws the bird as a filled ellipse on the canvas.
    * @method Bird#show
    * @returns {void}
    */
@@ -68,8 +68,9 @@ class Bird {
 
   /**
    * Converts the bird's position and size to a hit box for collision detection.
+   * A hit box is a set of coordinates that represents the space occupied by the bird.
    * @method Bird#toHitBox
-   * @returns {{top: number, right: number, bottom: number, left: number}} - The coordinates of the bird's hit box.
+   * @returns {{top: number, right: number, bottom: number, left: number}} - The pixel coordinates of the bird's hit box.
    */
   toHitBox() {
     const hitBox = {
@@ -82,18 +83,19 @@ class Bird {
   }
 
   /**
-   * Gets the radius of the bird.
-   * @method Bird#radius
-   * @returns {number} - The radius of the bird.
+   * Gets the diameter of the bird, scaled by the global SCALE factor.
+   * @method Bird#diameter
+   * @returns {number} - The scaled diameter of the bird, in pixels.
    */
   get diameter() {
     return this.DIAMETER * SCALE;
   }
 
   /**
-   * Gets the radius of the bird.
+   * Gets the radius of the bird, which is half the diameter.
+   * This is useful for calculations involving the bird's position and size.
    * @method Bird#radius
-   * @returns {number} - The radius of the bird.
+   * @returns {number} - The radius of the bird, in pixels.
    */
   get radius() {
     return this.diameter / 2;
