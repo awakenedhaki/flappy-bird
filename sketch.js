@@ -15,7 +15,7 @@ const N_INPUT_NODES = 5;
 const N_HIDDEN_NODES = 8;
 const N_OUTPUT_NODES = 2;
 const MUTATION_RATE = 0.3;
-const N_BIRDS = 50;
+const N_BIRDS = 100;
 
 // p5js Boilerplate ============================================================
 function setup() {
