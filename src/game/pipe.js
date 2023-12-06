@@ -95,9 +95,9 @@ class Pipe {
   toOpening() {
     return {
       top: this.position.y - this.spacing,
-      right: this.position.x + this.width,
+      right: this.position.rightEdge,
       bottom: this.position.y + this.spacing,
-      left: this.position.x,
+      left: this.leftEdge,
     };
   }
 
