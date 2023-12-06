@@ -1,10 +1,25 @@
 /**
  * Bird class representing the player-controlled bird in the Flappy Bird game.
  * @class Bird
+ *
+ * @property {number} X_POSITION - The constant x-position of the bird on the screen.
+ * @property {number} BORDER_OFFSET - The offset from the border of the screen.
+ * @property {number[]} MINT_GREEN - The RGBA color of the bird.
+ * @property {number} DIAMETER - The diameter of the bird.
+ * @property {number} MAX_VELOCITY - The maximum velocity of the bird.
+ * @property {number} MIN_VELOCITY - The minimum velocity of the bird.
+ * @property {p5.Vector} position - The current position of the bird.
+ * @property {p5.Vector} gravity - The gravity applied to the bird.
+ * @property {p5.Vector} velocity - The current velocity of the bird.
+ * @property {p5.Vector} lift - The lift applied to the bird when it flaps.
+ *
+ * @todo Apply SCALE global constant to velocity of bird
  */
 class Bird {
   /**
    * Creates a new Bird object.
+   * @constructor
+   *
    * @todo Apply SCALE global constant to velocity of bird
    */
   constructor() {
@@ -36,7 +51,10 @@ class Bird {
   }
 
   /**
-   * Updates the bird's position and velocity based on gravity and constraints.
+   * Updates the bird's velocity and position. The bird's velocity is increased by the gravity,
+   * then constrained to be within the minimum and maximum velocities. The bird's position is
+   * then updated by adding the velocity, and is constrained to be within the screen boundaries.
+   *
    * @method Bird#update
    * @returns {void}
    */

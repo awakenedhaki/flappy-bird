@@ -1,6 +1,12 @@
 /**
  * Represents a neural network model used for prediction and mutation.
  * @class Brain
+ *
+ * @property {number} nInputNodes - The number of input nodes in the neural network.
+ * @property {number} nHiddenNodes - The number of hidden nodes in the neural network.
+ * @property {number} nOutputNodes - The number of output nodes in the neural network.
+ * @property {tf.Sequential} model - The TensorFlow.js sequential model representing the neural network.
+ *
  * @todo Implement crossover along with mutation
  */
 class Brain {
@@ -10,7 +16,7 @@ class Brain {
    * @param {number} nInputNodes - The number of input nodes in the neural network.
    * @param {number} nHiddenNodes - The number of hidden nodes in the neural network.
    * @param {number} nOutputNodes - The number of output nodes in the neural network.
-   * @param {tf.Sequential} [brain] - An existing model (optional).
+   * @param {tf.Sequential} [brain] - An existing model (optional). If provided, this model will be used instead of creating a new one.
    */
   constructor(nInputNodes, nHiddenNodes, nOutputNodes, brain) {
     // Constants
@@ -28,9 +34,12 @@ class Brain {
   }
 
   /**
-   * Creates a neural network model.
+   * Creates a neural network model with a single hidden layer.
    * @method Brain#createModel
-   * @returns {tf.Sequential} - Returns a sequential model.
+   * @param {number} nInputNodes - The number of input nodes in the neural network.
+   * @param {number} nHiddenNodes - The number of hidden nodes in the neural network.
+   * @param {number} nOutputNodes - The number of output nodes in the neural network.
+   * @returns {tf.Sequential} - Returns a sequential model with a single hidden layer and specified number of input and output nodes.
    */
   createModel(nInputNodes, nHiddenNodes, nOutputNodes) {
     // Single layered NN

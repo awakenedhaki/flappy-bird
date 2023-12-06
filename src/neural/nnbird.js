@@ -2,6 +2,10 @@
  * Represents a bird controlled by a neural network.
  * @class NNBird
  * @extends Bird
+ *
+ * @property {number} score - The score of the bird.
+ * @property {number} fitness - The fitness of the bird, used for genetic algorithm selection.
+ * @property {Brain} brain - The neural network controlling the bird.
  */
 class NNBird extends Bird {
   /**

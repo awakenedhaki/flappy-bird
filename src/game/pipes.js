@@ -1,6 +1,10 @@
 /**
- * Manages the collection and behavior of multiple pipes in the Flappy Bird game.
+ * Represents a collection of pipe obstacles in the Flappy Bird game.
  * @class Pipes
+ *
+ * @property {Pipe[]} pipes - An array of Pipe objects.
+ * @property {number} DISTANCE_BETWEEN_PIPES - The distance between each pipe.
+ * @property {number} MAX_PIPES - The maximum number of pipes.
  */
 class Pipes {
   /**
@@ -14,6 +18,21 @@ class Pipes {
 
     // Collection
     this.pipes = this.initializePipeArray();
+  }
+
+  /**
+   * Initializes the pipe array with the maximum number of pipes at their initial positions.
+   * @method Pipes#initializePipeArray
+   * @returns {Array<Pipe>} - Array containing the initialized pipes.
+   */
+  initializePipeArray() {
+    const pipes = [];
+    let x = width;
+    for (let i = 0; i < this.MAX_PIPES; i++) {
+      pipes[i] = Pipe.fromXCoordinate(x);
+      x += this.DISTANCE_BETWEEN_PIPES;
+    }
+    return pipes;
   }
 
   /**
@@ -61,21 +80,6 @@ class Pipes {
    */
   show() {
     this.pipes.forEach((pipe) => pipe.show());
-  }
-
-  /**
-   * Initializes the pipe array with the maximum number of pipes at their initial positions.
-   * @method Pipes#initializePipeArray
-   * @returns {Array<Pipe>} - Array containing the initialized pipes.
-   */
-  initializePipeArray() {
-    const pipes = [];
-    let x = width;
-    for (let i = 0; i < this.MAX_PIPES; i++) {
-      pipes[i] = Pipe.fromXCoordinate(x);
-      x += this.DISTANCE_BETWEEN_PIPES;
-    }
-    return pipes;
   }
 
   /**

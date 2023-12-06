@@ -1,7 +1,10 @@
 /**
  * Represents a population of birds controlled by neural networks.
  * @class Population
- * @todo Create new generation onces all birds are culled.
+ *
+ * @property {number} size - The size of the population.
+ * @property {NNBird[]} activeBirds - The currently active birds in the population.
+ * @property {NNBird[]} inactiveBirds - The birds that have been culled from the population.
  */
 class Population {
   /**
@@ -31,6 +34,9 @@ class Population {
 
   /**
    * Creates a new generation of birds from the current population.
+   * The new generation is created by selecting the fittest birds from the
+   * current population and using them to breed a new set of birds.
+   *
    * @static
    * @method Population#nextGeneration
    * @param {NNBird[]} birds - The current population of birds.

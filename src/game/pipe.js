@@ -1,11 +1,22 @@
 /**
  * Represents a pipe obstacle in the Flappy Bird game.
- * @class
+ * @class Pipe
+ *
+ * @property {number[]} DIM_GREY - The RGBA color of the pipe.
+ * @property {number} OFFSET - The offset from the top and bottom of the screen.
+ * @property {number} SPACING - The spacing between the top and bottom parts of the pipe.
+ * @property {number} WIDTH - The width of the pipe.
+ * @property {p5.Vector} position - The current position of the pipe.
+ * @property {p5.Vector} velocity - The current velocity of the pipe.
+ * @property {boolean} active - Whether the pipe is currently active (i.e., on the screen).
+ *
  */
 class Pipe {
   /**
    * Creates a new Pipe object.
+   *
    * @constructor
+   * @param {number} x - The initial x-coordinate position of the pipe.
    */
   constructor(x) {
     // Constants
@@ -39,8 +50,8 @@ class Pipe {
   }
 
   /**
-   * Updates the position of the pipe.
-   * @method Pipe#update
+   * Updates the position of the pipe based on its current velocity.
+   * @method Pipe.update
    * @returns {void}
    */
   update() {
@@ -48,7 +59,12 @@ class Pipe {
   }
 
   /**
-   * Displays the pipe on the screen.
+   * Displays the pipe on the canvas. The pipe consists of two parts: a "top pipe"
+   * that extends from the top of the screen to a random point, and a "bottom pipe"
+   * that extends from a point spaced a certain distance below the top pipe to the
+   * bottom of the screen. The space in between the top and bottom pipes is where
+   * the bird can pass through.
+   *
    * @method Pipe#show
    * @returns {void}
    */
