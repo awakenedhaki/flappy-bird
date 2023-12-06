@@ -15,7 +15,11 @@
  * console.log(randomElement);  // Outputs 'a', 'b', or 'c' with respective probabilities 1/6, 2/6, 3/6
  */
 function weightedRandomSelection(elements, weights) {
+  if (weights.every((weight) => isNaN(weight))) {
+    weights = weights.fill(1 / weights.length);
+  }
   const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
+
   const randomValue = Math.random() * totalWeight;
 
   let cumulativeWeight = 0;
