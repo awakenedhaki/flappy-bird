@@ -15,7 +15,7 @@ class Pipe {
     this.WIDTH = 25;
 
     // Position
-    this.pipe = createVector(
+    this.position = createVector(
       x || width,
       random(this.OFFSET, height - this.OFFSET)
     );
@@ -44,7 +44,7 @@ class Pipe {
    * @returns {void}
    */
   update() {
-    this.pipe.add(this.velocity);
+    this.position.add(this.velocity);
   }
 
   /**
@@ -56,10 +56,10 @@ class Pipe {
     fill(...this.DIM_GREY);
 
     // Top pipe
-    rect(this.pipe.x, 0, this.width, this.pipe.y - this.spacing);
+    rect(this.position.x, 0, this.width, this.position.y - this.spacing);
 
     // Bottom pipe
-    rect(this.pipe.x, this.pipe.y + this.spacing, this.width, height);
+    rect(this.position.x, this.position.y + this.spacing, this.width, height);
   }
 
   /**
@@ -78,8 +78,8 @@ class Pipe {
    */
   toOpening() {
     return {
-      top: this.pipe.y - this.spacing,
-      bottom: this.pipe.y + this.spacing,
+      top: this.position.y - this.spacing,
+      bottom: this.position.y + this.spacing,
     };
   }
 
@@ -98,7 +98,7 @@ class Pipe {
    * @returns {number} - The x-coordinate of the pipe's center.
    */
   get x() {
-    return this.pipe.x;
+    return this.position.x;
   }
 
   /**
