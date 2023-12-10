@@ -54,7 +54,11 @@ function draw() {
   // Selection + Mutation
   if (birds.activeBirds.length === 0) {
     birds.calculateFitness();
-    birds = Population.nextGeneration(birds.inactiveBirds);
+
+    const progeny = Population.nextGeneration(birds.inactiveBirds);
+    birds.dispose();
+    birds = progeny;
+
     pipes = new Pipes();
   }
 }
