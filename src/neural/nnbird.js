@@ -56,7 +56,10 @@ class NNBird extends Bird {
   }
 
   /**
-   * Makes a prediction based on inputs using the NNBird's brain.
+   * Makes a prediction based on inputs using the NNBird's brain and controls
+   * the bird's action.
+   * If the output of the neural network for a 'flap' action is greater than for
+   * a 'do nothing' action, the bird will flap.
    * @method NNBird#predict
    * @param {Pipe} pipe - The pipe object for inputs.
    * @returns {void}

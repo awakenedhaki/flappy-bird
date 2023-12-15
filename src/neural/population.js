@@ -33,9 +33,9 @@ class Population {
   }
 
   /**
-   * Creates a new generation of birds from the current population.
-   * The new generation is created by selecting the fittest birds from the
-   * current population and using them to breed a new set of birds.
+   * Creates a new generation of birds from the current population. This method
+   * selects the fittest birds based on their fitness scores, then breeds and
+   * mutates them to form a new generation.
    * @static
    * @method Population#nextGeneration
    * @param {NNBird[]} birds - The current population of birds.
@@ -56,7 +56,8 @@ class Population {
   }
 
   /**
-   * Calculates the fitness of each bird in the population.
+   * Calculates the fitness of each bird in the population based on their score.
+   * Fitness is used for selecting birds for breeding in the next generation.
    * @method Population#calculateFitness
    */
   calculateFitness() {

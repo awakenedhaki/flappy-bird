@@ -3,6 +3,10 @@
  * Each weight corresponds to the probability of selecting the respective element from the `elements` array.
  * The weights do not need to sum to 1, but they must be non-negative. If the weights sum to 0, the function will return `null`.
  *
+ *  Note: It's crucial that the `weights` array is correctly aligned with the
+ * `elements` array and that each weight accurately represents the selection
+ *  probability for its corresponding element.
+ *
  * @function weightedRandomSelection
  * @param {any[]} elements - The array of elements to select from.
  * @param {number[]} weights - The array of weights corresponding to elements.
