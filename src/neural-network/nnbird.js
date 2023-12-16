@@ -84,6 +84,10 @@ class NNBird extends Bird {
     }
   }
 
+  /**
+   * Disposes the neural network bird by disposing its brain.
+   * @returns {void}
+   */
   dispose() {
     this.brain.dispose();
   }
