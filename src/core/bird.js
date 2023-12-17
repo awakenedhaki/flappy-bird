@@ -30,6 +30,7 @@ class Bird {
    * Causes the bird to perform a flap action, adjusting its position upwards.
    * @method Bird#flap
    * @returns {void}
+   * @todo Apply SCALE global constant to velocity of bird
    */
   flap() {
     this.velocity.set(0, 0);
