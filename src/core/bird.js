@@ -2,12 +2,6 @@
  * Bird class representing the player-controlled bird in the Flappy Bird game.
  * @class Bird
  *
- * @property {number} X_POSITION - The constant x-position of the bird on the screen.
- * @property {number} BORDER_OFFSET - The offset from the border of the screen.
- * @property {number[]} MINT_GREEN - The RGBA color of the bird.
- * @property {number} DIAMETER - The diameter of the bird.
- * @property {number} MAX_VELOCITY - The maximum velocity of the bird.
- * @property {number} MIN_VELOCITY - The minimum velocity of the bird.
  * @property {p5.Vector} position - The current position of the bird.
  * @property {p5.Vector} gravity - The gravity applied to the bird.
  * @property {p5.Vector} velocity - The current velocity of the bird.
@@ -23,16 +17,8 @@ class Bird {
    * @todo Apply SCALE global constant to velocity of bird
    */
   constructor() {
-    // Constants
-    this.X_POSITION = 35;
-    this.BORDER_OFFSET = 0.1;
-    this.MINT_GREEN = [201, 237, 220, 190];
-    this.DIAMETER = 17;
-    this.MAX_VELOCITY = 6;
-    this.MIN_VELOCITY = -4;
-
     // Position of Bird
-    this.position = createVector(this.X_POSITION, height / 2);
+    this.position = createVector(BIRD_X_POSITION, height / 2);
 
     // Movement
     this.gravity = createVector(0, 0.3);
@@ -61,12 +47,12 @@ class Bird {
     this.velocity.add(this.gravity);
     this.velocity.y = constrain(
       this.velocity.y,
-      this.MIN_VELOCITY,
-      this.MAX_VELOCITY
+      BIRD_MIN_VELOCITY,
+      BIRD_MAX_VELOCITY
     );
 
     this.position.add(this.velocity);
-    this.position.y = constrain(this.position.y, this.BORDER_OFFSET, height);
+    this.position.y = constrain(this.position.y, BIRD_BORDER_OFFSET, height);
   }
 
   /**
@@ -75,7 +61,7 @@ class Bird {
    * @returns {void}
    */
   show() {
-    fill(this.MINT_GREEN);
+    fill(BIRD_MINT_GREEN);
     ellipse(this.position.x, this.position.y, this.diameter);
   }
 
@@ -101,7 +87,7 @@ class Bird {
    * @returns {number} - The scaled diameter of the bird, in pixels.
    */
   get diameter() {
-    return this.DIAMETER * SCALE;
+    return BIRD_DIAMETER * SCALE;
   }
 
   /**

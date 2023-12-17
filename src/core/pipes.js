@@ -3,8 +3,6 @@
  * @class Pipes
  *
  * @property {Pipe[]} pipes - An array of Pipe objects.
- * @property {number} DISTANCE_BETWEEN_PIPES - The distance between each pipe.
- * @property {number} MAX_PIPES - The maximum number of pipes.
  */
 class Pipes {
   /**
@@ -12,11 +10,6 @@ class Pipes {
    * @constructor
    */
   constructor() {
-    // Constants
-    this.DISTANCE_BETWEEN_PIPES = 180;
-    this.MAX_PIPES = 4;
-
-    // Collection
     this.pipes = this.initializePipeArray();
   }
 
@@ -28,9 +21,9 @@ class Pipes {
   initializePipeArray() {
     const pipes = [];
     let x = width;
-    for (let i = 0; i < this.MAX_PIPES; i++) {
+    for (let i = 0; i < MAX_PIPES; i++) {
       pipes[i] = Pipe.fromXCoordinate(x);
-      x += this.DISTANCE_BETWEEN_PIPES;
+      x += DISTANCE_BETWEEN_PIPES;
     }
     return pipes;
   }
@@ -47,7 +40,7 @@ class Pipes {
     if (this.firstPipe.isOffscreenLeft) {
       const firstPipe = this.pipes.shift();
       firstPipe.changeOpeningCoordinates(
-        this.lastPipe.x + this.DISTANCE_BETWEEN_PIPES
+        this.lastPipe.x + DISTANCE_BETWEEN_PIPES
       );
       this.pipes.push(firstPipe);
     }

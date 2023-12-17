@@ -19,10 +19,6 @@ class Brain {
    * @param {tf.Sequential} [brain] - An existing model (optional). If provided, this model will be used instead of creating a new one.
    */
   constructor(nInputNodes, nHiddenNodes, nOutputNodes, brain) {
-    // Constants
-    this.HIDDEN_LAYER_ACTIVATION = "sigmoid";
-    this.OUTPUT_LAYER_ACTIVATION = "sigmoid";
-
     // Model Parameters
     this.nInputNodes = nInputNodes;
     this.nHiddenNodes = nHiddenNodes;
@@ -49,13 +45,13 @@ class Brain {
         tf.layers.dense({
           units: nHiddenNodes,
           inputShape: [nInputNodes],
-          activation: this.HIDDEN_LAYER_ACTIVATION,
+          activation: HIDDEN_LAYER_ACTIVATION,
           useBias: true,
         }),
         // Fully connected output layer
         tf.layers.dense({
           units: nOutputNodes,
-          acivation: this.OUTPUT_LAYER_ACTIVATION,
+          acivation: OUTPUT_LAYER_ACTIVATION,
         }),
       ],
     });

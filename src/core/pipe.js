@@ -2,10 +2,6 @@
  * Represents a pipe obstacle in the Flappy Bird game.
  * @class Pipe
  *
- * @property {number[]} DIM_GREY - The RGBA color of the pipe.
- * @property {number} OFFSET - The offset from the top and bottom of the screen.
- * @property {number} SPACING - The spacing between the top and bottom parts of the pipe.
- * @property {number} WIDTH - The width of the pipe.
  * @property {p5.Vector} position - The current position of the pipe.
  * @property {p5.Vector} velocity - The current velocity of the pipe.
  * @property {boolean} active - Whether the pipe is currently active (i.e., on the screen).
@@ -19,12 +15,6 @@ class Pipe {
    * @param {number} x - The initial x-coordinate position of the pipe.
    */
   constructor(x) {
-    // Constants
-    this.DIM_GREY = [106, 112, 110, 190];
-    this.OFFSET = 60;
-    this.SPACING = 27;
-    this.WIDTH = 25;
-
     // Position
     this.position = this.generatePosition(x);
 
@@ -56,7 +46,7 @@ class Pipe {
    * @returns {p5.Vector} - The generated position of the pipe.
    */
   generatePosition(x) {
-    return createVector(x || width, random(this.OFFSET, height - this.OFFSET));
+    return createVector(x || width, random(PIPE_OFFSET, height - PIPE_OFFSET));
   }
 
   /**
@@ -90,7 +80,7 @@ class Pipe {
    * @returns {void}
    */
   show() {
-    fill(...this.DIM_GREY);
+    fill(...PIPE_DIM_GREY);
 
     // Top pipe
     rect(this.position.x, 0, this.width, this.position.y - this.spacing);
@@ -164,7 +154,7 @@ class Pipe {
    * @returns {number} - The width of the pipe.
    */
   get width() {
-    return this.WIDTH * SCALE;
+    return PIPE_WIDTH * SCALE;
   }
 
   /**
@@ -173,6 +163,6 @@ class Pipe {
    * @returns {number} - The spacing between the pipes.
    */
   get spacing() {
-    return this.SPACING * SCALE;
+    return PIPE_SPACING * SCALE;
   }
 }

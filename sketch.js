@@ -1,22 +1,6 @@
 // Declaring Global Variables ==================================================
 let birds, pipes;
 
-// Constants ===================================================================
-// Game Aesthetics
-const SCALE = 1.5;
-const ENGLISH_VIOLET = [76, 59, 77];
-
-// Game Logic
-const COLLISION_TOLERANCE = 0.65;
-const CROSSING_THRESHOLD = 1.25;
-
-// Genetic Algorithm
-const N_INPUT_NODES = 5;
-const N_HIDDEN_NODES = 8;
-const N_OUTPUT_NODES = 2;
-const MUTATION_RATE = 0.3;
-const N_BIRDS = 100;
-
 // p5js Boilerplate ============================================================
 function setup() {
   createCanvas(135 * SCALE, 203 * SCALE);
