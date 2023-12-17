@@ -42,6 +42,7 @@ class Pipes {
       firstPipe.changeOpeningCoordinates(
         this.lastPipe.x + DISTANCE_BETWEEN_PIPES
       );
+      firstPipe.active = true;
       this.pipes.push(firstPipe);
     }
   }
